@@ -1,16 +1,14 @@
 import { expect } from 'chai';
+import testFunc from '../src/index.js';
 
-import System from 'systemjs';
-
-describe("tests are running", ()=>{
-  let Microstate;
+describe("tests are running", () => {
+  let stuff;
 
   before(() => {
-    return System.import('./lib/microstate.js')
-      .then((mod) => Microstate = mod);
+    stuff = testFunc();
   });
 
-  it('should load', () => {
-    expect(Microstate.default).to.equal('hello world');
+  it('should be hello world', () => {
+    expect(stuff).to.equal('hello world');
   });
 });
