@@ -1,10 +1,18 @@
-import { describe, beforeEach, it } from 'mocha';
 import { expect } from 'chai';
 
-import { BooleanState } from 'microstates';
-import { MicroState } from 'microstates';
+import System from 'systemjs';
 
 describe("BooleanState", function() {
+  let BooleanState, MicroState;
+
+  before(() => {
+    return System.import('./lib/index.js')
+      .then( mod => {
+        MicroState = mod.MicroState;
+        BooleanState = mod.BooleanState;
+      });
+  });
+
   it("is a microstate", function() {
     expect(new BooleanState()).to.be.instanceOf(MicroState);
   });
