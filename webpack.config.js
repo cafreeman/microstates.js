@@ -4,8 +4,9 @@ const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const libraryName = 'microstates';
+const LIB_NAME = 'microstates';
 
+const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   src: path.join(__dirname, 'src'),
   lib: path.join(__dirname, 'lib'),
@@ -16,8 +17,8 @@ const commonConfig = {
   entry: PATHS.src,
   output: {
     path: PATHS.lib,
-    filename: 'microstates.js',
-    library: 'microstates',
+    filename: LIB_NAME + '.js',
+    library: LIB_NAME,
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -51,7 +52,7 @@ const buildConfig = {
 };
 
 const devConfig = {
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
 };
 
 var config;
