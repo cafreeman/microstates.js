@@ -17,7 +17,7 @@ const commonConfig = {
   entry: PATHS.src,
   output: {
     path: PATHS.lib,
-    filename: LIB_NAME + '.js',
+    filename: 'index.js',
     library: LIB_NAME,
     libraryTarget: 'umd',
     umdNamedDefine: true

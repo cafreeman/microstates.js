@@ -10,7 +10,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
-    "test": "npm run build && mocha --require babel-core/register test/index.js --watch"
+    "clean": "rm -rf lib node_modules",
+    "test": "npm run build && mocha --require babel-core/register test/index.js",
+    "start": "npm run build && mocha --require babel-core/register test/index.js --watch"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
     "chai": "^3.4.1",
     "clean-webpack-plugin": "^0.1.10",
     "mocha": "^2.3.3",
+    "require-all": "^2.0.0",
     "webpack": "^1.13.2",
     "webpack-merge": "^0.14.1",
     "webpack-validator": "^2.2.7"
